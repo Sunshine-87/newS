@@ -1,0 +1,30 @@
+<div class="weui-tabbar" style="position: fixed">
+    <a href="index.php?c=qiubangzhu&m=index" class="weui-tabbar__item <?php $c = isset($_GET['c'])?$_GET['c'] : 'qiubangzhu'; if($c == 'qiubangzhu') {echo 'weui-bar__item_on';} ?>">
+        <span style="display: inline-block;position: relative;">
+            <img src="./image/favorite.png" alt="" class="weui-tabbar__icon">
+            <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">8</span>
+        </span>
+        <p class="weui-tabbar__label">帮助集</p>
+    </a>
+    <a href="javascript:;" class="weui-tabbar__item">
+        <span style="display: inline-block;position: relative;">
+            <img src="./image/component.png" alt="" class="weui-tabbar__icon">
+            <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+        </span>
+        <p class="weui-tabbar__label">发布任务</p>
+    </a>
+    <a href="javascript:;" class="weui-tabbar__item">
+        <img src="./image/color.png" alt="" class="weui-tabbar__icon">
+        <p class="weui-tabbar__label">评价区</p>
+    </a>
+    <a href="index.php?c=personal&m=index" class="weui-tabbar__item <?php if($c == 'personal') {echo 'weui-bar__item_on';} ?>">
+        <img src="./image/account.png" alt="" class="weui-tabbar__icon">
+        <p class="weui-tabbar__label">我的账号</p>
+    </a>
+</div>
+<script type="text/javascript" class="tabbar js_show">
+$(function(){
+    $('.weui-tabbar__item').on('click', function () {
+        $(this).addClass('weui-bar__item_on').siblings('.weui-bar__item_on').removeClass('weui-bar__item_on');
+    });
+});</script>
