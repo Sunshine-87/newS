@@ -54,8 +54,10 @@ class xiaojishi extends Controller
 		foreach ($imagearr as $imageid) {
 			$sql = "SELECT url from image where id = $imageid";
 			$result = mysqli_query($link, $sql);
-			$row = mysqli_fetch_array($result);
-			array_push($imgurlarr, $row['url']);
+			if ($result) {
+				$row = mysqli_fetch_array($result);
+				array_push($imgurlarr, $row['url']);
+			}
 		}
 		$json['image'] = $imgurlarr;
 		$data['detail'] = $json;

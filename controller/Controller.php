@@ -6,7 +6,8 @@ class Controller
 	private $deny = [
 	'personal.php' => ['background/navbar.html'],
 	'detail/qiubangzhu.php' => ['background/navbar.html'],
-	'detail/xiaojishi.php' => ['background/navbar.html']
+	'detail/xiaojishi.php' => ['background/navbar.html'],
+	'detail/lingkuaidi.php' => ['background/navbar.html']
 	];
 
 	function display($tpl = '', $data=array()) {

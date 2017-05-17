@@ -23,14 +23,14 @@ class lingkuaidi extends Controller
 
 	function detail() {
 		$link = DBLink::$connect;
-		$sql = "SELECT a.nickname,b.destination,b.place,b.kuaidiTime,b.userId,b.getTime from userInfo as a,kuaidi as b where a.id = b.userId and b.id = ".$_GET['id'];
+		$sql = "SELECT a.nickname,a.head_photo,b.destination,b.place,b.kuaidiTime,b.userId,b.getTime from userInfo as a,kuaidi as b where a.id = b.userId and b.id = ".$_GET['id'];
 		$result = mysqli_query($link, $sql);
 		$json = array();
 		while ($row = mysqli_fetch_array($result)) {
 			$kuaidiTime = date('Y-m-d H:i',$row['kuaidiTime']);
 			$getTime = date('Y-m-d H:i',$row['getTime']);
 			$mine = ($_SESSION['userId'] == $row['userId']) ? 1 : 0;
-			$json= array('nickname' => $row['nickname'], 'place' =>$row['place'], 'kuaidiTime'=>$kuaidiTime, 'getTime'=>$getTime, 'userId' => $row['userId'], 'mine' =>$mine ,'destination' => $row['destination']);
+			$json= array('nickname' => $row['nickname'], 'place' =>$row['place'], 'kuaidiTime'=>$kuaidiTime, 'getTime'=>$getTime, 'userId' => $row['userId'], 'mine' =>$mine ,'destination' => $row['destination'], 'head_photo' => $row['head_photo']);
 			if ($mine == 1) {
 				$source = '2'.$_GET['id'];
 				$sql = "SELECT distinct(a.sendId),b.nickname from msg as a,userinfo as b where source = '$source' and a.sendId = b.id";

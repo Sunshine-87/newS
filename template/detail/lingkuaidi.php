@@ -3,10 +3,10 @@
 <div class="page__bd">
     <div class="weui-cell" style="">
         <div id="showIOSDialog2" class="weui-cell__hd" style="position: relative;margin-right: 10px; ">
-            <img src="http://wx.qlogo.cn/mmopen/apPRibXRhibwSBels4eUSiachQRSia2S5fykkk8jxPGGibo4AdwibkMKeEv4LXOVWzmib9ETq1w8hKH6vHPo5DzMtcZJtFLyz87dY3l/0" style="width: 100px;display: block;border-radius:50%;">
+            <img src="<?php echo $detail['head_photo']; ?>" style="width: 100px;display: block;border-radius:50%;">
         </div>
         <div class="weui-cell__bd">
-            <p style="">&nbsp;&nbsp;&nbsp;&nbsp;--徐博恒</p>
+            <p style="">&nbsp;&nbsp;&nbsp;&nbsp;--<?php echo $detail['nickname']; ?></p>
         </div>
     </div>
     <article class="weui-article">
@@ -14,7 +14,7 @@
             <p>
                 <?php
                 if ($detail['destination'] != '') {
-                    $t = '到'+$detail['destination'];
+                    $t = '到'.$detail['destination'];
                 } else {
                     $t = '';
                 }
@@ -25,8 +25,8 @@
     <div class="js_dialog" id="iosDialog1" style="opacity: 0;display:none">
         <div class="weui-mask"></div>
         <div class="weui-dialog">
-            <div class="weui-dialog__hd"><img src="http://wx.qlogo.cn/mmopen/apPRibXRhibwSBels4eUSiachQRSia2S5fykkk8jxPGGibo4AdwibkMKeEv4LXOVWzmib9ETq1w8hKH6vHPo5DzMtcZJtFLyz87dY3l/0" style="width: 100px;display: block;border-radius:50%; margin:0 auto;"></div>
-            <div class="weui-dialog__bd">徐博恒</div>
+            <div class="weui-dialog__hd"><img src="<?php echo $detail['head_photo']; ?>" style="width: 100px;display: block;border-radius:50%; margin:0 auto;"></div>
+            <div class="weui-dialog__bd"><?php echo $detail['nickname']; ?></div>
             <div style="list-style-type: none;" class="weui-dialog__bd"><li>完成任务：15</li>
             <li>受到帮助：3</li></div>
             <div class="weui-dialog__ft">
